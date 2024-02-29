@@ -6,18 +6,18 @@ IN_PRECISION = 3
 PI = math.pi
 
 class TanCalc:
-    def __init__(self, unit="MM"):
+    def __init__(self, unit):
         self.unit = unit
         self.precision = MM_PRECISION
 
     def top_depth_calc(self, angle, diameter1, diameter2, bottom_depth,):
-        angle = abs(angle)
+        angle = abs(angle * .5)
         diameter1 = abs(diameter1)
         diameter2 = abs(diameter2)
         bottom_depth = abs(bottom_depth)
 
-        if self.unit == "IN":
-            self.precision = 3
+        if self.unit == "in":
+            self.precision = IN_PRECISION
 
         tan_result = round(math.tan(angle * PI / 180), 10)
         radial_change = abs(diameter1 - diameter2) * .5
